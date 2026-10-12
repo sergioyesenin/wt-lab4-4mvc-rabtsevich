@@ -1,0 +1,33 @@
+@model wt_lab4_4mvc_rabtsevich.Models.Flight
+@{ ViewData["Title"] = $"Рейс {Model.FlightNumber}"; }
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4 border-0 mx-auto" style="max-width: 720px;">
+        <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <h1 class="fw-bold mb-1">✈️ @Model.FlightNumber</h1>
+                    <p class="text-muted mb-0">@Model.Departure → @Model.Destination</p>
+                </div>
+                <span class="badge rounded-pill fs-6 @(Model.IsActive ? "bg-success" : "bg-danger")">
+                    @(Model.IsActive ? "Активен" : "Неактивен")
+                </span>
+            </div>
+
+            <dl class="row mb-0">
+                <dt class="col-sm-4">ID</dt><dd class="col-sm-8">@Model.Id</dd>
+                <dt class="col-sm-4">Номер рейса</dt><dd class="col-sm-8">@Model.FlightNumber</dd>
+                <dt class="col-sm-4">Пункт вылета</dt><dd class="col-sm-8">@Model.Departure</dd>
+                <dt class="col-sm-4">Пункт назначения</dt><dd class="col-sm-8">@Model.Destination</dd>
+                <dt class="col-sm-4">Время вылета</dt><dd class="col-sm-8">@Model.DepartureTime.ToString("dd.MM.yyyy HH:mm")</dd>
+                <dt class="col-sm-4">Цена билета</dt><dd class="col-sm-8 fw-bold text-primary">@Model.TicketPrice ₽</dd>
+                <dt class="col-sm-4">Свободных мест</dt><dd class="col-sm-8">@Model.SeatsAvailable</dd>
+            </dl>
+
+            <div class="d-flex gap-2 mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Изменить</a>
+                <a asp-action="Index" class="btn btn-secondary">← Назад к списку</a>
+            </div>
+        </div>
+    </div>
+</div>
