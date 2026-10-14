@@ -1,5 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpLogging(o => { });
+builder.Logging.AddConsole();
 
 var app = builder.Build();
 
@@ -7,6 +9,8 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
+app.UseHttpLogging(); 
 
 app.UseStaticFiles();
 app.UseRouting();
