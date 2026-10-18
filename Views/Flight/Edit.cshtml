@@ -25,18 +25,22 @@
                     <div class="col-md-6">
                         <label asp-for="Departure" class="form-label"></label>
                         <input asp-for="Departure" class="form-control" />
+                        <span asp-validation-for="Departure" class="text-danger small"></span>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="Destination" class="form-label"></label>
                         <input asp-for="Destination" class="form-control" />
+                        <span asp-validation-for="Destination" class="text-danger small"></span>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="TicketPrice" class="form-label"></label>
                         <input asp-for="TicketPrice" type="number" step="0.01" class="form-control" />
+                        <span asp-validation-for="TicketPrice" class="text-danger small"></span>
                     </div>
                     <div class="col-md-6">
                         <label asp-for="SeatsAvailable" class="form-label"></label>
                         <input asp-for="SeatsAvailable" type="number" class="form-control" />
+                        <span asp-validation-for="SeatsAvailable" class="text-danger small"></span>
                     </div>
                     <div class="col-12 form-check ms-2">
                         <input asp-for="IsActive" class="form-check-input" />
